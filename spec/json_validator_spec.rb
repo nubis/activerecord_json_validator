@@ -196,8 +196,7 @@ describe JsonValidator do
 
       spawn_model 'User' do
         attr_accessor :data
-        serialize :data, JSON
-        validates :data, json: true
+        validates :data, json: { schema: '{}' }
       end
 
       record.data = data
@@ -213,6 +212,11 @@ describe JsonValidator do
     context 'with invalid JSON data' do
       let(:data) { { foo: 'bar' } }
       it { expect(record.data_invalid_json).to be_nil }
+      it do
+        record.save
+        record.reload
+        expect(record.data).to eql(data)
+      end
     end
   end
 end

@@ -7,9 +7,7 @@ class DatabaseAdapter
     ActiveRecord::Base.establish_connection(database_configuration)
   end
 
-  def reset_database!
-  end
+  def reset_database!; end
 
-  def cleanup!
-  end
+  def cleanup!; end
 end

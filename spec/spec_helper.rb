@@ -17,7 +17,7 @@ RSpec.configure do |config|
   config.include ModelMacros
 
   config.before :each do
-    adapter = ENV['DB_ADAPTER'] || 'postgresql'
+    adapter = ENV['DB_ADAPTER'] || 'sqlite3'
     @database_adapter = setup_database(adapter: adapter, database: 'activerecord_json_validator_test')
   end
 

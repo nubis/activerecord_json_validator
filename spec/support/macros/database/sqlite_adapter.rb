@@ -11,6 +11,6 @@ class Sqlite3Adapter < DatabaseAdapter
   end
 
   def cleanup!
-    `rm #{@database}.sqlite` if File.exists?("#{@database}.sqlite")
+    `rm #{@database}.sqlite` if File.exist?("#{@database}.sqlite")
   end
 end
